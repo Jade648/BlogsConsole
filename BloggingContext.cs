@@ -19,7 +19,7 @@ namespace BlogsConsole
             IConfiguration config = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json", true, true)
                 .Build();
-            optionsBuilder.UseSqlServer(@"server=bitsql.wctc.edu;Database=Blogs_##_XXX;User ID=000;Password=222");
+            optionsBuilder.UseSqlServer(@config["BloggingContext:ConnectionString"]);
         }
     }
 }
