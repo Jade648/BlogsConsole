@@ -13,6 +13,43 @@ namespace BlogsConsole
 
             logger.Info("Program started");
 
+            string option = ""; 
+            do {
+
+                Console.WriteLine("1) Display all Blogs");
+
+                Console.WriteLine(" 2) Add a Blog");
+
+                Console.WriteLine("3) Create a Blog Post");
+
+                Console.WriteLine("4) Display all Posts");
+
+                Console.ReadLine();
+
+                Console.WriteLine(" Press enter to exit the progam menu");
+
+                if (option == "3"){
+
+                    Console.WriteLine("Select Blog to Post to");
+
+                    Console.ReadLine();
+
+                    Console.WriteLine("Enter the details for the Post");
+
+                    Console.ReadLine();
+                }
+
+                else if(option == "4"){
+
+                    Console.WriteLine("Select Blog to view Posts from");
+
+                    Console.ReadLine();
+
+                    Console.WriteLine("Display all Posts and number of posts");
+                }
+
+            } while (option == "3" | option == "4");
+
              try
             {
 
