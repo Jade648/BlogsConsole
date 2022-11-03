@@ -24,9 +24,9 @@ namespace BlogsConsole
 
                 Console.WriteLine("4) Display all Posts");
 
-                Console.ReadLine();
+                Console.WriteLine(" Press q to exit the progam menu");
 
-                Console.WriteLine(" Press enter to exit the progam menu");
+                Console.ReadLine();
 
                 if (option == "3"){
 
