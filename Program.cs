@@ -26,9 +26,35 @@ namespace BlogsConsole
 
                 Console.WriteLine("Press q to exit the progam menu");
 
-                Console.ReadLine();
+                option = Console.ReadLine();
 
-                 if (option == "3"){
+                if (option == "2"){
+
+                    try
+                    {
+                        Console.Write("Enter a name for a new Blog: ");
+                
+                        var name = Console.ReadLine();
+
+                        var blog = new Blog { Name = name };  
+                        
+                        var db = new BloggingContext();
+
+                        db.AddBlog(blog);
+
+                        var query = db.Blogs.OrderBy(b => b.Name);    
+
+                            Console.WriteLine("All blogs in the database:");
+                        foreach (var item in query)
+                        {
+                            Console.WriteLine(item.Name);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        logger.Error(ex.Message);
+                    }
+                } else if (option == "3"){
 
                     Console.WriteLine("Select Blog to Post to");
 
@@ -47,35 +73,9 @@ namespace BlogsConsole
 
                     Console.WriteLine("Display all Posts and number of posts");
     
-                }
+                }   
 
-                   try
-                 {
-                    Console.Write("Enter a name for a new Blog: ");
-                
-                var name = Console.ReadLine();
-
-                var blog = new Blog { Name = name };  
-                 
-                 var db = new BloggingContext();
-
-                  db.AddBlog(blog);
-
-                  var query = db.Blogs.OrderBy(b => b.Name);    
-
-                     Console.WriteLine("All blogs in the database:");
-                foreach (var item in query)
-                {
-                    Console.WriteLine(item.Name);
-                }
-
-            }
-            catch (Exception ex)
-            {
-                logger.Error(ex.Message);
-            }
-
-            } while (option == "1" | option == "2");  
+            } while (option != "q");  
 
             logger.Info("Program Ended");   
 
